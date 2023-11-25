@@ -1,0 +1,1 @@
+/Users/pavelkim/rust_projects/4-understanding_ownership/references_borrowing/target/debug/references_borrowing: /Users/pavelkim/rust_projects/4-understanding_ownership/references_borrowing/src/main.rs
