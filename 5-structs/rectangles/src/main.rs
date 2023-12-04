@@ -29,11 +29,11 @@ fn main() {
     };
     println!(
         "The area of the rectangle is {} square pixels.",
-        rect1.area() // implemented as method
+        rect1.area() // implemented as method, self is passed as reference automatically
     );
     println!(
         "The area of the rectangle is {} square pixels.",
-        area(&rect1) // ref is needed to leave `rect1` in main's scope
+        area(&rect1) // for regular f, ref is needed to leave `rect1` in main's scope
     );
     println!("rect1 is {:#?}", rect1); // {:?} will display in one line
     
@@ -55,10 +55,10 @@ fn main() {
 
     let scale = 2;
     let rect2 = Rectangle {
-        width: dbg!(30 * scale),
+        width: dbg!(30 * scale), // prints the info about the expression
         height: 50,
     };
-    dbg!(&rect2);
+    dbg!(&rect2); // prints the description of the rect2 struct
 }
 
 fn area(rectangle: &Rectangle) -> u32 {
