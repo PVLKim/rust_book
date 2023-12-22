@@ -34,7 +34,7 @@ fn main() {
     for i in &v {
         println!("{i}");
     }
-    // to modify the vector, need to a mutable borrow
+    // to modify the vector, need to do a mutable borrow
     let mut v = vec![100, 32, 57];
     for i in &mut v {
         *i += 50; // !need derefencing operator (*)

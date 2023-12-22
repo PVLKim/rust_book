@@ -31,7 +31,7 @@ fn main() {
     // borrow mutably
     let mut list = vec![1, 2, 3];
     println!("Before defining closure: {:?}", list);
-    let mut borrows_mutably = || list.push(7);
+    let mut borrows_mutably = || list.push(7); // closure itself is mutable!
     // println!("Before calling closure: {:?}", list); //not possible to do immutable borrow here, since mut borrow happened earlier
     borrows_mutably(); 
     println!("After calling closure: {:?}", list);
@@ -56,7 +56,7 @@ fn main() {
     // attempt to count number of calls to the closure (4)
     let mut num_sort_operations = 0;
     list.sort_by_key(|r| {
-        num_sort_operations += 1; // increments counter
+        num_sort_operations += 1; // increments counter by capturing the variable in scope
         r.width // return an orderable value
     });
     println!(

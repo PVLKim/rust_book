@@ -4,7 +4,7 @@ fn main() {
     // below will produce error, since `word` is still being used
     let mut s = String::from("hello world");
     let word = first_word(&s);
-    // s.clear(); // error!
+    s.clear(); 
     // println!("the first word is: {}", word); // commented to avoid error
 
 
