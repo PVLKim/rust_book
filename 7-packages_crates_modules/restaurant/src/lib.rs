@@ -37,7 +37,7 @@ mod back_house {
     }
 
     impl Breakfast { 
-        // public associated function is needed to constuct an instance of Breakfast
+        // public associated function is needed to construct an instance of Breakfast
         // since Breakfast has one private field (seasonal_fruit)
         pub fn summer(toast: &str) -> Breakfast { 
             Breakfast {

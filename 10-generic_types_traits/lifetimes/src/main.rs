@@ -9,7 +9,7 @@
 
 // The following tells that for some lifetime 'a, func's params are string slices
 // that live at least as long as lifetime 'a. In practice, it means that the lifetime
-// of the reference returned by the longet func is the same as the smaller of 
+// of the reference returned by the longest func is the same as the smaller of 
 // the lifetimes of the values referred to by the func arguments
 fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     if x.len() > y.len() {
@@ -34,7 +34,7 @@ struct ImportantExcerpt<'a> {
 // so, there's still uncertainty about some lifetimes, it stop with an error:
 // Rule 1. Assign a lifetime parameter to each param that's a reference 
 //    => fn foo<'a, 'b>(x: &'a i32, y: &'b i32)
-// Rule 2. If there's exactly one input lifetime param, that lieftime is assigned 
+// Rule 2. If there's exactly one input lifetime param, that lifetime is assigned 
 //         to all output lifetime params => fn foo<'a>(x: &'a i32) -> &'a i32
 // Rule 3. If there're multiple input lifetime params, but one of them is &self
 //         or &mut self, the lifetime of self gets assigned to all output lifetime params

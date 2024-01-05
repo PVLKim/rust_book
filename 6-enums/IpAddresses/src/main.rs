@@ -12,6 +12,7 @@ enum Message {
     Write(String),              // include single string ~ tuple struct 
     ChangeColor(i32, i32, i32), // tuple struct
 }
+
 impl Message {
     fn call(&self) {
         // method body would be defined here

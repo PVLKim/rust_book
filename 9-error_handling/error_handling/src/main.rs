@@ -44,7 +44,6 @@ fn main() {
     // Propagating the error to the caller of the function instead of panicking
     fn read_username_from_file() -> Result<String, io::Error> {
         let username_file_result = File::open("hello.txt");
-    
         let mut username_file = match username_file_result {
             Ok(file) => file,
             Err(e) => return Err(e), // for early return, specify return explicitly
@@ -56,9 +55,10 @@ fn main() {
             Ok(_) => Ok(username),
             Err(e) => Err(e),
         }
+    }
 
     // Shortcut for propagating errors -> ?
-    fn read_username_from_file() -> Result<String, io::Error> {
+    fn read_username_from_file_2() -> Result<String, io::Error> {
         let mut username_file = File::open("hello.txt")?;
         let mut username = String::new();
         username_file.read_to_string(&mut username)?;

@@ -24,6 +24,20 @@ fn hello(name: &str) {
     println!("Hello, {name}!");
 }
 
+// Implementing Drop trait and its drop method
+// lets you customize what happens when a value is going out of scope
+
+struct CustomSmartPointer {
+    data: String,
+}
+
+impl Drop for CustomSmartPointer {
+    fn drop(&mut self) {
+        // this prints to console when the struct variable goes out of scope
+        println!("Dropping CustomSmartPointer with data `{}`!", self.data);
+    }
+}
+
 fn main() {
     // Way to define Cons list (Recursive DS)
     let list = Cons(1, Box::new(Cons(2, Box::new(Cons(3, Box::new(Nil))))));
@@ -39,6 +53,19 @@ fn main() {
     // This allows to use custom Box types without explicit conversion to string slice as defined in func signature
     let m = MyBox::new(String::from("Rust"));
     hello(&m);
+
+    // Sometimes you might want to drop value early, so for that you can use 
+    // std::mem::drop function 
+    let c = CustomSmartPointer {
+        data: String::from("some data"),
+    };
+    println!("CustomerSmartPointer created");
+    std::mem::drop(c);
+    println!("CustomerSmartPointer dropped before the end of main");
+
+
+
+
 
     
 

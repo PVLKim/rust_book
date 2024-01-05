@@ -1,6 +1,6 @@
 use std::cmp::PartialOrd;
 
-// Monomophization will turn each generic type into concrete type at compile time
+// Monomorphization will turn each generic type into concrete type at compile time
 fn largest<T: PartialOrd>(list: &[T]) -> &T { // restricts to types that implement PartialOrd trait
     let mut largest = &list[0];
     for item in list {
